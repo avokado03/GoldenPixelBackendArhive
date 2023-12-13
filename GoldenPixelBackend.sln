@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixelBackend", "GoldenPixelBackend\GoldenPixelBackend.csproj", "{5D9E5C68-1B27-4002-B692-15C55CDCBEBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixelBackend", "GoldenPixelBackend\GoldenPixelBackend.csproj", "{5D9E5C68-1B27-4002-B692-15C55CDCBEBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixelBackend.Mail", "GoldenPixelBackend.Mail\GoldenPixelBackend.Mail.csproj", "{8A86EB65-17E4-4850-88F3-A320E34D3367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixelBackend.Db", "GoldenPixelBackend.Db\GoldenPixelBackend.Db.csproj", "{822D1740-9031-4A3D-B68A-631D4B0DB211}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5D9E5C68-1B27-4002-B692-15C55CDCBEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9E5C68-1B27-4002-B692-15C55CDCBEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9E5C68-1B27-4002-B692-15C55CDCBEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A86EB65-17E4-4850-88F3-A320E34D3367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A86EB65-17E4-4850-88F3-A320E34D3367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A86EB65-17E4-4850-88F3-A320E34D3367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A86EB65-17E4-4850-88F3-A320E34D3367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822D1740-9031-4A3D-B68A-631D4B0DB211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822D1740-9031-4A3D-B68A-631D4B0DB211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822D1740-9031-4A3D-B68A-631D4B0DB211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822D1740-9031-4A3D-B68A-631D4B0DB211}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
