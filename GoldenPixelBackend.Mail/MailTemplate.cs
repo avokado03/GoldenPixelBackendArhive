@@ -1,7 +1,7 @@
 ﻿namespace GoldenPixelBackend.Mail
 {
-	public class Class1
+	public class MailTemplate
 	{
-
+		
 	}
 }
