@@ -1,18 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GoldenPixelBackend.Mail.MailModels
+namespace GoldenPixelBackend.Mail.MailModels;
+
+/// <summary>
+/// Модель оповещения о новой заявке
+/// </summary>
+internal class NotificationNameModel : RequestMailModel
 {
-	/// <summary>
-	/// Модель оповещения о новой заявке
-	/// </summary>
-	internal class NotificationNameModel : RequestMailModel
-	{
-		[Required]
-		public long Id { get; set; }
+	[Required]
+	public long Id { get; set; }
 
-		[Required]
-		public string Email { get; set; }
+	[Required]
+	public string Email { get; set; }
 
-		public string? Description { get; set; }
-	}
+	public string? Description { get; set; }
 }
+
