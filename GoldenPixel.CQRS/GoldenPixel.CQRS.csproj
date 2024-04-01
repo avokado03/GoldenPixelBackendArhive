@@ -1,16 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\Queries\" />
-    <Folder Include="Handlers\Commands\" />
-    <Folder Include="Requests\" />
-    <Folder Include="Responses\" />
+    <ProjectReference Include="..\GoldenPixel.Core\GoldenPixel.Core.csproj" />
+    <ProjectReference Include="..\GoldenPixelBackend.Db\GoldenPixelBackend.Db.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Mappings\" />
   </ItemGroup>
 
 </Project>

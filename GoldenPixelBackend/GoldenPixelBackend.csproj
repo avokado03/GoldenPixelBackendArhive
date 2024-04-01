@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>c972ee43-6f88-46ac-9272-3432f25ff081</UserSecretsId>
@@ -14,6 +14,14 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\О_о\source\repos\GoldenPixelBackend\GoldenPixelBackend\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\О_о\source\repos\GoldenPixelBackend\GoldenPixelBackend\.editorconfig" />
   </ItemGroup>
 
 </Project>

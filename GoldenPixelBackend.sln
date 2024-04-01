@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixelBackend.Mail", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixelBackend.Db", "GoldenPixelBackend.Db\GoldenPixelBackend.Db.csproj", "{822D1740-9031-4A3D-B68A-631D4B0DB211}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.CQRS", "GoldenPixel.CQRS\GoldenPixel.CQRS.csproj", "{13E36050-F036-444C-8646-376A971ADF37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.CQRS", "GoldenPixel.CQRS\GoldenPixel.CQRS.csproj", "{13E36050-F036-444C-8646-376A971ADF37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.Core", "GoldenPixel.Core\GoldenPixel.Core.csproj", "{78401DB8-41AC-46CA-B8C9-92B9DD94EC6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{13E36050-F036-444C-8646-376A971ADF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13E36050-F036-444C-8646-376A971ADF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13E36050-F036-444C-8646-376A971ADF37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78401DB8-41AC-46CA-B8C9-92B9DD94EC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78401DB8-41AC-46CA-B8C9-92B9DD94EC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78401DB8-41AC-46CA-B8C9-92B9DD94EC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78401DB8-41AC-46CA-B8C9-92B9DD94EC6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

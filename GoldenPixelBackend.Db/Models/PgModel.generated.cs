@@ -22,7 +22,7 @@ namespace DataModels
 	/// </summary>
 	public partial class GPDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Request> Requests { get { return this.GetTable<Request>(); } }
+		public ITable<Order> Orders { get { return this.GetTable<Order>(); } }
 
 		partial void InitMappingSchema()
 		{
@@ -59,8 +59,8 @@ namespace DataModels
 		partial void InitMappingSchema();
 	}
 
-	[Table(Schema="public", Name="requests")]
-	public partial class Request
+	[Table(Schema="public", Name="orders")]
+	public partial class Order
 	{
 		[Column("id"),          NotNull] public Guid   Id          { get; set; } // uuid
 		[Column("email"),       NotNull] public string Email       { get; set; } // character varying(100)
