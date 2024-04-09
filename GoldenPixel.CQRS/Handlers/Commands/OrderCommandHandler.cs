@@ -5,13 +5,14 @@ namespace GoldenPixel.CQRS.Handlers.Commands;
 
 internal class OrderCommandHandler
 {
-	public async Task HandleInsertCommand(CreateOrderCommand request)
+	public async Task<CreateOrderResponse> HandleInsertCommand(CreateOrderCommand request)
 	{
 		using (var db = new DataModels.GPDB())
 		{
+			var id = Guid.NewGuid();
 			var order = new DataModels.Order
 			{
-				Id = Guid.NewGuid(),
+				Id = id,
 				Email = request.Email,
 				Requester = request.Requester,
 				Description = request.Description
@@ -20,7 +21,9 @@ internal class OrderCommandHandler
 			var result = await db.InsertAsync(order);
 
 			if (result == 0)
-				throw new LinqToDBException("Ошибка при добавлении записи.");
+				return new(null, Errors.FailedInsert);
+
+			return new(id, null);
 		}
 	}
 }
