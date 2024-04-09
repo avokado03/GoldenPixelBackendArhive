@@ -11,8 +11,4 @@
     <ProjectReference Include="..\GoldenPixelBackend.Db\GoldenPixelBackend.Db.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\Mappings\" />
-  </ItemGroup>
-
 </Project>
