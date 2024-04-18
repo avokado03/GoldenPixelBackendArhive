@@ -1,4 +1,4 @@
-﻿using DataModels;
+﻿using GoldenPixel.Db.Entities;
 using Domain = GoldenPixel.Core.Orders;
 
 namespace GoldenPixel.CQRS.Handlers.Mappings;

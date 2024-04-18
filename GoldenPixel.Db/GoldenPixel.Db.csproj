@@ -3,12 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoldenPixel.Core\GoldenPixel.Core.csproj" />
-    <ProjectReference Include="..\GoldenPixel.Db\GoldenPixel.Db.csproj" />
+    <PackageReference Include="linq2db" Version="5.4.1" />
   </ItemGroup>
 
 </Project>

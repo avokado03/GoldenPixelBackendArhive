@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="linq2db.AspNet" Version="5.4.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -22,6 +25,10 @@
 
   <ItemGroup>
     <None Include="C:\Users\О_о\source\repos\GoldenPixelBackend\GoldenPixelBackend\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoldenPixel.Db\GoldenPixel.Db.csproj" />
   </ItemGroup>
 
 </Project>

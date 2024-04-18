@@ -22,8 +22,6 @@ namespace DataModels
 	/// </summary>
 	public partial class GPDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Order> Orders { get { return this.GetTable<Order>(); } }
-
 		partial void InitMappingSchema()
 		{
 		}
@@ -57,14 +55,5 @@ namespace DataModels
 
 		partial void InitDataContext  ();
 		partial void InitMappingSchema();
-	}
-
-	[Table(Schema="public", Name="orders")]
-	public partial class Order
-	{
-		[Column("id"),          NotNull] public Guid   Id          { get; set; } // uuid
-		[Column("email"),       NotNull] public string Email       { get; set; } // character varying(100)
-		[Column("requester"),   NotNull] public string Requester   { get; set; } // character varying(50)
-		[Column("description"), NotNull] public string Description { get; set; } // character varying(500)
 	}
 }
