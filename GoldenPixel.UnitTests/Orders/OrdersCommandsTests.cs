@@ -5,7 +5,7 @@ using GoldenPixel.TestInfrastructure.Attributes;
 namespace GoldenPixel.UnitTests.Orders;
 
 [TestFixture]
-public class OrderCommandsTests
+public class OrdersCommandsTests
 {
     [Test]
     [ExpectedException(typeof(ArgumentNullException))]

@@ -5,14 +5,17 @@ using LinqToDB;
 
 namespace GoldenPixel.CQRS.Handlers.Queries;
 
-internal class OrderQueryHandler
+public static class OrderQueryHandler
 {
-	public async Task<GetOrderByIdResponse> HandleGetOrderById(GpDbConnection connection,
-		GetOrderByIdRequest request)
+	public static async Task<GetOrderByIdResponse> HandleGetOrderById(GpDbConnection connection,
+		GetOrderByIdRequest query)
 	{
+		if (connection == null) 
+			throw new ArgumentNullException(nameof(connection));
+
 		try
 		{
-			var result = await connection.Orders.SingleAsync(x => x.Id ==  request.Id);
+			var result = await connection.Orders.SingleAsync(x => x.Id ==  query.Id);
 			return new(result.ToDomain());
 		}
 		catch (ArgumentNullException)
@@ -25,19 +28,21 @@ internal class OrderQueryHandler
 		}
 	}
 
-	public async Task<GetOrdersResponse> HandleGetOrders(GpDbConnection connection,
-		GetOrdersRequest request)
+	public static async Task<GetOrdersResponse> HandleGetOrders(GpDbConnection connection,
+		GetOrdersRequest query)
 	{
+		if (connection == null)
+			throw new ArgumentNullException(nameof(connection));
 		try
 		{
-			var query = from order in connection.Orders
+			var orders = from order in connection.Orders
 						select order;
-			if (request.count != null)
+			if (query.count != null)
 			{
-				query = query.Take(request.count.Value);
+				orders = orders.Take(query.count.Value);
 			}
-			var orders = await query.ToArrayAsync();
-			var result = orders.ToDomain();
+			var ordersResult = await orders.ToArrayAsync();
+			var result = ordersResult.ToDomain();
 			return new(result, null);
 		}
 		catch (ArgumentNullException)
