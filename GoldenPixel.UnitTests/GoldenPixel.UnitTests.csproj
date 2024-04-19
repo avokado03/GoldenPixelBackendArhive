@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GoldenPixel.CQRS\GoldenPixel.CQRS.csproj" />
     <ProjectReference Include="..\GoldenPixel.Db\GoldenPixel.Db.csproj" />
+    <ProjectReference Include="..\GoldenPixel.TestInfrastructure\GoldenPixel.TestInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>

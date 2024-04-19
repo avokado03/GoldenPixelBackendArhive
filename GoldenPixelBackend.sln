@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{69C73482
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.UnitTests", "GoldenPixel.UnitTests\GoldenPixel.UnitTests.csproj", "{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.TestInfrastructure", "GoldenPixel.TestInfrastructure\GoldenPixel.TestInfrastructure.csproj", "{134020C1-9F5B-412A-99FE-3A75BAFC960D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,12 +51,17 @@ Global
 		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
+		{134020C1-9F5B-412A-99FE-3A75BAFC960D} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {371B345E-C2D3-4898-A5C9-8F63B4ED4E54}

@@ -1,8 +1,9 @@
-﻿using NUnit.Framework.Interfaces;
+﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 
-namespace GoldenPixel.UnitTests;
+namespace GoldenPixel.TestInfrastructure.Attributes;
 
 /// <summary>
 /// A simple ExpectedExceptionAttribute 
