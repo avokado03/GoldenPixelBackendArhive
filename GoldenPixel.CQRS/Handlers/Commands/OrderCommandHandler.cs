@@ -4,12 +4,14 @@ using LinqToDB;
 
 namespace GoldenPixel.CQRS.Handlers.Commands;
 
-internal class OrderCommandHandler
+public static class OrderCommandHandler
 {
 
-	public async Task<CreateOrderResponse> HandleInsertCommand(GpDbConnection connection, 
+	public static async Task<CreateOrderResponse> HandleInsertCommand(GpDbConnection connection, 
 		CreateOrderCommand request)
 	{
+		if (connection is null)
+			throw new ArgumentNullException(nameof(connection));
 		var id = Guid.NewGuid();
 		var order = new Order
 		{

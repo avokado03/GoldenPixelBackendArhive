@@ -14,9 +14,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.Db", "GoldenPixel.Db\GoldenPixel.Db.csproj", "{F2E280D2-FE4D-41EB-8316-B07117871029}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11EBB7FF-09D0-47FC-B782-4465B04C5902}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{69C73482-7C04-4556-8038-005E8BD9C1F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.UnitTests", "GoldenPixel.UnitTests\GoldenPixel.UnitTests.csproj", "{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,9 +45,16 @@ Global
 		{F2E280D2-FE4D-41EB-8316-B07117871029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2E280D2-FE4D-41EB-8316-B07117871029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2E280D2-FE4D-41EB-8316-B07117871029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {371B345E-C2D3-4898-A5C9-8F63B4ED4E54}
