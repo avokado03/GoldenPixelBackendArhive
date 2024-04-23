@@ -61,7 +61,16 @@ namespace GoldenPixel.TestInfrastructure.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на CREATE DATABASE IF EXISTS {DbName} ENCODING = &apos;UTF8&apos; LC_COLLATE = &apos;Russian_Russia.1251&apos; LC_CTYPE = &apos;Russian_Russia.1251&apos;;
+        ///
+        ///CREATE SCHEMA public;
+        ///
+        ///CREATE TABLE public.orders (
+        ///    id uuid NOT NULL,
+        ///    email character varying(100) NOT NULL,
+        ///    requester character varying(50) NOT NULL,
+        ///    description character varying(500) NOT NULL
+        ///);.
         /// </summary>
         internal static string DbScript {
             get {
