@@ -61,20 +61,25 @@ namespace GoldenPixel.TestInfrastructure.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на CREATE DATABASE IF EXISTS {DbName} ENCODING = &apos;UTF8&apos; LC_COLLATE = &apos;Russian_Russia.1251&apos; LC_CTYPE = &apos;Russian_Russia.1251&apos;;
-        ///
-        ///CREATE SCHEMA public;
-        ///
-        ///CREATE TABLE public.orders (
+        ///   Ищет локализованную строку, похожую на CREATE DATABASE {DbName} ENCODING = &apos;UTF8&apos; LC_COLLATE = &apos;Russian_Russia.1251&apos; LC_CTYPE = &apos;Russian_Russia.1251&apos;;.
+        /// </summary>
+        internal static string DbScript {
+            get {
+                return ResourceManager.GetString("DbScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на CREATE TABLE orders (
         ///    id uuid NOT NULL,
         ///    email character varying(100) NOT NULL,
         ///    requester character varying(50) NOT NULL,
         ///    description character varying(500) NOT NULL
         ///);.
         /// </summary>
-        internal static string DbScript {
+        internal static string TablesScript {
             get {
-                return ResourceManager.GetString("DbScript", resourceCulture);
+                return ResourceManager.GetString("TablesScript", resourceCulture);
             }
         }
     }

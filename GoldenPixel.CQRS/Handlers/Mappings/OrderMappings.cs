@@ -5,17 +5,17 @@ namespace GoldenPixel.CQRS.Handlers.Mappings;
 
 internal static class OrderMappings
 {
-	public static Domain.Order ToDomain(this Order dbOrder)
+	public static Domain.Orders ToDomain(this Orders dbOrder)
 	{
-		return new Domain.Order(
+		return new Domain.Orders(
 			Id: dbOrder.Id, Email: dbOrder.Email,
 			Description: dbOrder.Description, Requester: dbOrder.Requester
 		);
 	}
 
-	public static Domain.Order[] ToDomain(this Order[] dbOrders)
+	public static Domain.Orders[] ToDomain(this Orders[] dbOrders)
 	{
-		var domains = new Domain.Order[dbOrders.Length];
+		var domains = new Domain.Orders[dbOrders.Length];
 
 		for(int i = 0; i < dbOrders.Length; i++)
 		{

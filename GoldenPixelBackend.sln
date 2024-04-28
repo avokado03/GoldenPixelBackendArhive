@@ -17,9 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{69C73482-7C04-4556-8038-005E8BD9C1F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.UnitTests", "GoldenPixel.UnitTests\GoldenPixel.UnitTests.csproj", "{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.UnitTests", "GoldenPixel.UnitTests\GoldenPixel.UnitTests.csproj", "{635AFDCC-D776-43FD-94B0-E6ADE35BB27F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.TestInfrastructure", "GoldenPixel.TestInfrastructure\GoldenPixel.TestInfrastructure.csproj", "{134020C1-9F5B-412A-99FE-3A75BAFC960D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.TestInfrastructure", "GoldenPixel.TestInfrastructure\GoldenPixel.TestInfrastructure.csproj", "{134020C1-9F5B-412A-99FE-3A75BAFC960D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.IntegrationTests", "GoldenPixel.IntegrationTests\GoldenPixel.IntegrationTests.csproj", "{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{134020C1-9F5B-412A-99FE-3A75BAFC960D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{635AFDCC-D776-43FD-94B0-E6ADE35BB27F} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
 		{134020C1-9F5B-412A-99FE-3A75BAFC960D} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
+		{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF} = {69C73482-7C04-4556-8038-005E8BD9C1F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {371B345E-C2D3-4898-A5C9-8F63B4ED4E54}

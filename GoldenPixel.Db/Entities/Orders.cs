@@ -1,6 +1,6 @@
 ﻿namespace GoldenPixel.Db.Entities;
 
-public class Order
+public class Orders
 {
 	public Guid Id { get; set; }
 	public string Email { get; set; }

@@ -1,10 +1,1 @@
-CREATE DATABASE IF EXISTS {DbName} ENCODING = 'UTF8' LC_COLLATE = 'Russian_Russia.1251' LC_CTYPE = 'Russian_Russia.1251';
-
-CREATE SCHEMA public;
-
-CREATE TABLE public.orders (
-    id uuid NOT NULL,
-    email character varying(100) NOT NULL,
-    requester character varying(50) NOT NULL,
-    description character varying(500) NOT NULL
-);
+CREATE DATABASE "{DbName}" ENCODING = 'UTF8' LC_COLLATE = 'Russian_Russia.1251' LC_CTYPE = 'Russian_Russia.1251';

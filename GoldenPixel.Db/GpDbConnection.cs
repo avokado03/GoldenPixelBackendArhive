@@ -6,7 +6,7 @@ namespace GoldenPixel.Db;
 
 public class GpDbConnection : DataConnection
 {
-	public ITable<Order> Orders { get { return this.GetTable<Order>(); } }
+	public ITable<Orders> Orders { get { return this.GetTable<Orders>(); } }
 
 	public GpDbConnection(DataOptions<GpDbConnection> options) : base(options.Options)
 	{

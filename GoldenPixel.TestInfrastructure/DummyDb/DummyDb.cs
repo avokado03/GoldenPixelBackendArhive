@@ -9,6 +9,8 @@ public static class DummyDb
 
 	private static string DbName { get; set; }
 
+	private static string DefaultConnectionString { get; set; }
+
 	public static string DbConnectionString { get; private set; }
 
 	public static void CreateDbIfNotExist()
@@ -16,17 +18,23 @@ public static class DummyDb
 		if (string.IsNullOrWhiteSpace(ServerConnectionString))
 			ServerConnectionString = GetServerConnectionString();
 
+		if (string.IsNullOrWhiteSpace(DefaultConnectionString))
+			DefaultConnectionString = CreateDefaultConnectionString();
+
 		if (string.IsNullOrEmpty(DbConnectionString))
 			DbConnectionString = CreateConnectionString();
 
-		var query = GetCreateQueryFromFile();
-		ExecuteNonQuery(query);
+		var dbQuery = GetCreateQueryFromFile("DbScript");
+		ExecuteNonQuery(dbQuery, DefaultConnectionString);
+
+		var tablesQuery = GetCreateQueryFromFile("TablesScript");
+		ExecuteNonQuery(tablesQuery, DbConnectionString);
 	}
 
 	public static void DropDbIfExist()
 	{
-		var query = $"DROP DATABASE IF EXISTS {DbName}";
-		ExecuteNonQuery(query);
+		var query = $"DROP DATABASE \"{DbName}\"";
+		ExecuteNonQuery(query, DefaultConnectionString);
 	}
 
 	public static void TruncateTableIfExist(string tableName)
@@ -38,7 +46,7 @@ public static class DummyDb
 			throw new ArgumentException("Имя таблицы неверно указано или не существует");
 
 		var query = $@"TRUNCATE {tableName} RESTART IDENTITY CASCADE;";
-		ExecuteNonQuery(query);
+		ExecuteNonQuery(query, DbConnectionString);
 	}
 
 	private static string CreateConnectionString()
@@ -48,35 +56,41 @@ public static class DummyDb
 
 		var dbNamePostfix = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
 		var dbName = "GpDb_"+dbNamePostfix;
-		var connectionString = $"{ServerConnectionString};Database:{dbName}";
+		var connectionString = $"{ServerConnectionString}Database={dbName};";
 		DbName = dbName;
+		return connectionString;
+	}
+
+	private static string CreateDefaultConnectionString()
+	{
+		if (string.IsNullOrEmpty(ServerConnectionString))
+			throw new ArgumentNullException(nameof(ServerConnectionString));
+
+		var connectionString = $"{ServerConnectionString}Database=postgres;";
 		return connectionString;
 	}
 
 	private static string GetServerConnectionString()
 	{
-		var serverConnection = Environment.GetEnvironmentVariable("PG_CONNECTION");
+		var serverConnection = Environment.GetEnvironmentVariable("PG_CONNECTION", EnvironmentVariableTarget.Machine);
 		if (string.IsNullOrEmpty(serverConnection))
 			throw new NullReferenceException("Нет переменной окружения подключения PG_CONNECTION");
 		return serverConnection;
 	}
 
-	private static string GetCreateQueryFromFile()
+	private static string GetCreateQueryFromFile(string fileName)
 	{
-		var manager = Resources.ResourceManager.GetObject("DbScript");
-		if (manager is null)
-			throw new NullReferenceException("Файл запросов не найден");
+		var query = Resources.ResourceManager.GetObject(fileName).ToString();
 
-		string query = Resources.DbScript;
 		if (string.IsNullOrEmpty(query))
 			throw new NullReferenceException("Файл запросов пуст.");
 
-		query = query.Replace("{DbName}", DbConnectionString);
+		query = query.Replace("{DbName}", DbName);
 
 		return query;
 	}
 
-	private static void ExecuteNonQuery(string query)
+	private static void ExecuteNonQuery(string query, string connectionString)
 	{
 		if (string.IsNullOrEmpty(query))
 			throw new ArgumentNullException("Текст запроса пуст");
@@ -84,16 +98,15 @@ public static class DummyDb
 		if (string.IsNullOrEmpty(DbName))
 			throw new ArgumentNullException("Имя БД пустое");
 
-		using var connection = new NpgsqlConnection(DbConnectionString);
-		connection.Open();
-		var command = new NpgsqlCommand(query, connection);
-		int rowsAffected = command.ExecuteNonQuery();
-		connection.Close();
-		if (rowsAffected == -1)
-			throw new Exception($"Ошибка БД при выполнении запроса \n {query}");
+		using (var connection = new NpgsqlConnection(connectionString))
+		{
+			connection.Open();
+			var command = new NpgsqlCommand(query, connection);
+			int rowsAffected = command.ExecuteNonQuery();
+		}
 	}
 
-	private static T? ExecuteScalar<T>(string query)
+	private static T? ExecuteScalar<T>(string query, string connectionString)
 		where T : new()
 	{
 		if (string.IsNullOrEmpty(query))
@@ -102,21 +115,20 @@ public static class DummyDb
 		if (string.IsNullOrEmpty(DbName))
 			throw new ArgumentNullException("Имя БД пустое");
 
-		T result = new();
-		using var connection = new NpgsqlConnection(DbConnectionString);
-		try
+		T? result = new();
+		using (var connection = new NpgsqlConnection(connectionString))
 		{
-			connection.Open();
-			var command = new NpgsqlCommand(query, connection);
-			result = (T)command.ExecuteScalar();
-		}
-		catch (NullReferenceException ex)
-		{
-			throw new Exception($"Запрос не вернул значения \n {query}", ex);
-		}
-		finally
-		{
-			connection.Close();
+			try
+			{
+				connection.Open();
+				var command = new NpgsqlCommand(query, connection);
+				var res = command.ExecuteScalar();
+				result = (T?)res;
+			}
+			catch (NullReferenceException ex)
+			{
+				throw new Exception($"Запрос не вернул значения \n {query}", ex);
+			}
 		}
 		return result;
 	}
@@ -129,7 +141,7 @@ public static class DummyDb
 		var query =
 $@"SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = '{tableName}') AS existence;";
 
-		var result = ExecuteScalar<bool>(query);
+		var result = ExecuteScalar<bool>(query, DbConnectionString);
 
 		return result;
 	}

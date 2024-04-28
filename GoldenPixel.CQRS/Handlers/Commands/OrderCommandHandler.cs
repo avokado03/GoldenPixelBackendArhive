@@ -13,7 +13,7 @@ public static class OrderCommandHandler
 		if (connection is null)
 			throw new ArgumentNullException(nameof(connection));
 		var id = Guid.NewGuid();
-		var order = new Order
+		var order = new Orders
 		{
 			Id = id,
 			Email = request.Email,
