@@ -11,7 +11,7 @@ namespace GoldenPixel.IntegrationTests
         public string? DbConnectionString { get; private set; }
 
         [SetUp]
-		public void Init()
+		protected void Init()
 		{
 			DummyDb.CreateDbIfNotExist();
 			DbConnectionString = DummyDb.DbConnectionString;
