@@ -2,10 +2,10 @@
 
 namespace GoldenPixel.CQRS.Handlers.Validation
 {
-	internal class ValidationResult
+	public class ValidationResult
 	{
 		public int ErrorsCount { get; private set; } = 0;
-        public List<string> ErrorDescriptions { get; private set; }
+		public List<string> ErrorDescriptions { get; private set; } = new List<string>();
 
 		public override string ToString()
 		{

@@ -8,7 +8,6 @@ public enum OrdersErrorCode
     FailedInsert = 4,
     FailedValidation = 5
 }
-
 public readonly record struct OrderError(OrdersErrorCode ErrorCode, string ErrorMessage);
 
 public static class Errors

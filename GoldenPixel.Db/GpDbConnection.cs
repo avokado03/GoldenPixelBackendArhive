@@ -8,7 +8,12 @@ public class GpDbConnection : DataConnection
 {
 	public ITable<Orders> Orders { get { return this.GetTable<Orders>(); } }
 
-	public GpDbConnection(DataOptions<GpDbConnection> options) : base(options.Options)
+    public GpDbConnection()
+    {
+        
+    }
+
+    public GpDbConnection(DataOptions<GpDbConnection> options) : base(options.Options)
 	{
 
 	}

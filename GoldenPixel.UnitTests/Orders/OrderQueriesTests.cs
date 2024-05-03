@@ -1,5 +1,6 @@
 ﻿using GoldenPixel.Core.Orders;
 using GoldenPixel.CQRS.Handlers.Queries;
+using GoldenPixel.Db;
 using GoldenPixel.TestInfrastructure.Attributes;
 
 namespace GoldenPixel.UnitTests.Orders;
