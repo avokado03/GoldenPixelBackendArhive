@@ -2,7 +2,7 @@
 
 public enum CoreErrorCode
 {
-	UnknownError = 1
+	UnknownError = 1,
 }
 
 public readonly record struct CoreError(CoreErrorCode ErrorCode, string ErrorMessage);

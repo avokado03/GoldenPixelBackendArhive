@@ -1,5 +1,6 @@
 ﻿using GoldenPixel.Core.Orders;
 using GoldenPixel.CQRS.Handlers.Mappings;
+using GoldenPixel.CQRS.Handlers.Validation;
 using GoldenPixel.Db;
 using LinqToDB;
 
@@ -8,14 +9,21 @@ namespace GoldenPixel.CQRS.Handlers.Queries;
 public static class OrderQueryHandler
 {
 	public static async Task<GetOrderByIdResponse> HandleGetOrderById(GpDbConnection connection,
-		GetOrderByIdRequest query)
+		GetOrderByIdRequest request)
 	{
 		if (connection == null) 
 			throw new ArgumentNullException(nameof(connection));
 
+		var validationResult = OrdersValidator.VadidateGetOrderByIdRequest(request);
+
+		if (validationResult.ErrorsCount != 0)
+		{
+			return new(null, Errors.CreateValidationError(validationResult.ToString()));
+		}
+
 		try
 		{
-			var result = await connection.Orders.SingleAsync(x => x.Id ==  query.Id);
+			var result = await connection.Orders.SingleAsync(x => x.Id ==  request.Id);
 			return new(result.ToDomain());
 		}
 		catch (ArgumentNullException)
@@ -29,7 +37,7 @@ public static class OrderQueryHandler
 	}
 
 	public static async Task<GetOrdersResponse> HandleGetOrders(GpDbConnection connection,
-		GetOrdersRequest query)
+		GetOrdersRequest request)
 	{
 		if (connection == null)
 			throw new ArgumentNullException(nameof(connection));
@@ -37,9 +45,9 @@ public static class OrderQueryHandler
 		{
 			var orders = from order in connection.Orders
 						select order;
-			if (query.count != null)
+			if (request.count != null)
 			{
-				orders = orders.Take(query.count.Value);
+				orders = orders.Take(request.count.Value);
 			}
 			var ordersResult = await orders.ToArrayAsync();
 			var result = ordersResult.ToDomain();

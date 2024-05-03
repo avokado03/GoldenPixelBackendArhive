@@ -6,6 +6,7 @@ public enum OrdersErrorCode
     ManyRecordsByOrderId = 2,
     OrdersIsNull = 3,
     FailedInsert = 4,
+    FailedValidation = 5
 }
 
 public readonly record struct OrderError(OrdersErrorCode ErrorCode, string ErrorMessage);
@@ -21,4 +22,7 @@ public static class Errors
     public static readonly OrderError ManyRecordsByOrderId = new(OrdersErrorCode.ManyRecordsByOrderId, ManyRecordsByIdMessage);
     public static readonly OrderError OrderIsNull = new(OrdersErrorCode.OrdersIsNull, OrdersIsNullMessage);
     public static readonly OrderError FailedInsert = new(OrdersErrorCode.FailedInsert, FailedInsertMessage);
+
+	public static OrderError CreateValidationError(string message) 
+        => new(OrdersErrorCode.FailedValidation, message);
 }

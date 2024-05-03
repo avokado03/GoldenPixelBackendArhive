@@ -1,4 +1,5 @@
 ﻿using GoldenPixel.Core.Orders;
+using GoldenPixel.CQRS.Handlers.Validation;
 using GoldenPixel.Db;
 using LinqToDB;
 
@@ -8,17 +9,25 @@ public static class OrderCommandHandler
 {
 
 	public static async Task<CreateOrderResponse> HandleInsertCommand(GpDbConnection connection, 
-		CreateOrderCommand request)
+		CreateOrderCommand command)
 	{
 		if (connection is null)
 			throw new ArgumentNullException(nameof(connection));
+
+		var validationResult = OrdersValidator.ValidateCreateOrderCommand(command);
+
+		if (validationResult.ErrorsCount != 0)
+		{
+			return new(null, Errors.CreateValidationError(validationResult.ToString()));
+		}
+
 		var id = Guid.NewGuid();
 		var order = new Orders
 		{
 			Id = id,
-			Email = request.Email,
-			Requester = request.Requester,
-			Description = request.Description
+			Email = command.Email,
+			Requester = command.Requester,
+			Description = command.Description
 		};
 
 		var result = await connection.InsertAsync(order);

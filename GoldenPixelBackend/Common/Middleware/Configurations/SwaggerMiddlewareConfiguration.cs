@@ -5,7 +5,7 @@ using System.Reflection;
 
 //TODO: раскомментировать аутентификацию после добавления crm
 
-namespace IOS.ROST.WebApi.Common.Middleware.Configurations
+namespace GoldenPixel.Common.Middleware.Configurations
 {
 	/// <summary>
 	/// Класс для конфигурации
