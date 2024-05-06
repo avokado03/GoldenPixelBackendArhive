@@ -32,7 +32,7 @@ namespace GoldenPixel.Common.Middleware.Configurations
 		/// <param name="options">Экземпляр опций</param>
 		public static void GetSwaggerUIOptions(SwaggerUIOptions options)
 		{
-			options.SwaggerEndpoint($"test/swagger.json", "Test");
+			options.SwaggerEndpoint($"orders/swagger.json", "Orders");
 			options.RoutePrefix = "api/swagger";
 
 			//раскомментировать, если при очень больших JSON упадет Swagger
@@ -63,10 +63,10 @@ namespace GoldenPixel.Common.Middleware.Configurations
 			{
 				Version = SWAGGER_API_VERSION,
 				Title = "ORDERS API",
-				Description = "Документ для тестового API",
+				Description = "API заявок для golden-pixel.kz",
 			};
 
-			options.SwaggerDoc("test", testInfo);
+			options.SwaggerDoc("orders", testInfo);
 		}
 
 		/// <summary>
