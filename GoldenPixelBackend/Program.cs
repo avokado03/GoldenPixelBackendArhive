@@ -39,6 +39,27 @@ try
 
 	builder.Services.AddSingleton<ILoggerProvider, NLogLoggerProvider>();
 
+	string? specificOrigins = "SpecificOrigins";
+	builder.Services.AddCors(options =>
+	{
+		options.AddPolicy(name: specificOrigins,
+		policy =>
+		{
+			policy
+			.WithOrigins(
+				"http://localhost:5000",
+				"https://localhost:5000",
+				"http://localhost:80",
+				"https://localhost:80",
+				"https://golden-pixel.kz"
+				)
+			.SetIsOriginAllowedToAllowWildcardSubdomains()
+			.AllowCredentials()
+			.WithMethods("POST", "PUT", "DELETE", "OPTIONS")
+			.WithHeaders("Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization");
+		});
+	});
+
 	var app = builder.Build();
 
 	if (app.Environment.IsDevelopment())
