@@ -47,8 +47,8 @@ try
 		{
 			policy
 			.WithOrigins(
-				"http://localhost:5000",
-				"https://localhost:5000",
+				"http://localhost:7066",
+				"https://localhost:7066",
 				"http://localhost:80",
 				"https://localhost:80",
 				"https://golden-pixel.kz"
@@ -62,16 +62,19 @@ try
 
 	var app = builder.Build();
 
-	if (app.Environment.IsDevelopment())
+
+	app.UseSwagger(c =>
 	{
-		app.UseSwagger(c =>
-			c.RouteTemplate = "api/swagger/{documentName}/swagger.json");
-		app.UseSwaggerUI(c => SwaggerMiddlewareConfigurations.GetSwaggerUIOptions(c));
-	}
+		c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+	});
+
+	app.UseSwaggerUI(c => SwaggerMiddlewareConfigurations.GetSwaggerUIOptions(c));
+
 
 	app.UseHttpsRedirection();
 
 	app.UseAuthorization();
+	app.UseCors(specificOrigins);
 
 	app.MapControllers();
 
