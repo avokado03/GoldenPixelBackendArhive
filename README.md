@@ -1,3 +1,3 @@
-goldenpixel.kz
+golden=pixel.kz
 
 https://gridorius.youtrack.cloud
