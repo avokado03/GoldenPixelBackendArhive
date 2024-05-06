@@ -18,7 +18,7 @@ try
 {
 	builder.Services.AddLinqToDBContext<GpDbConnection>((provider, options)
 				=> options
-					.UsePostgreSQL(builder.Configuration.GetConnectionString("GpDb"))
+					.UsePostgreSQL(builder.Configuration.GetConnectionString("DbGp"))
 					.UseDefaultLogging(provider));
 
 	var environment = builder.Environment.EnvironmentName;

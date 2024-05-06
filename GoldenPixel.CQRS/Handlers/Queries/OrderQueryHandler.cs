@@ -9,7 +9,7 @@ namespace GoldenPixel.CQRS.Handlers.Queries;
 public static class OrderQueryHandler
 {
 	public static async Task<GetOrderByIdResponse> HandleGetOrderById(GpDbConnection connection,
-		GetOrderByIdRequest request)
+		GetOrderByIdQuery request)
 	{
 		if (connection == null) 
 			throw new ArgumentNullException(nameof(connection));
@@ -37,7 +37,7 @@ public static class OrderQueryHandler
 	}
 
 	public static async Task<GetOrdersResponse> HandleGetOrders(GpDbConnection connection,
-		GetOrdersRequest request)
+		GetOrdersQuery request)
 	{
 		if (connection == null)
 			throw new ArgumentNullException(nameof(connection));

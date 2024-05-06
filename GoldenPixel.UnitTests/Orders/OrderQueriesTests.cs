@@ -12,7 +12,7 @@ internal class OrderQueriesTests
 	[ExpectedException(typeof(ArgumentNullException))]
 	public async Task HandleGetOrderById_NullConnection_ThrowExANE()
 	{
-		var request = new GetOrderByIdRequest(Guid.NewGuid());
+		var request = new GetOrderByIdQuery(Guid.NewGuid());
 
 		await OrderQueryHandler.HandleGetOrderById(null, request);
 	}
@@ -21,7 +21,7 @@ internal class OrderQueriesTests
 	[ExpectedException(typeof(ArgumentNullException))]
 	public async Task HandleGetOrders_NullConnection_ThrowExANE()
 	{
-		var request = new GetOrdersRequest();
+		var request = new GetOrdersQuery();
 
 		await OrderQueryHandler.HandleGetOrders(null, request);
 	}

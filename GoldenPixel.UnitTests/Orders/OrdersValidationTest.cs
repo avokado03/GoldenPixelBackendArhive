@@ -8,7 +8,7 @@ namespace GoldenPixel.UnitTests.Orders
 	{
 		public static object[] GetOrderByIdCases =
 		[
-			new object[] { new GetOrderByIdRequest(Guid.Empty), "Идентификатор заявки невалиден."},
+			new object[] { new GetOrderByIdQuery(Guid.Empty), "Идентификатор заявки невалиден."},
 		];
 
 		public static object[] CreateOrderCommandCases =
@@ -27,7 +27,7 @@ namespace GoldenPixel.UnitTests.Orders
 
 		[Test]
 		[TestCaseSource(nameof(GetOrderByIdCases))]
-		public void ValidateGetOrderByIdRequest(GetOrderByIdRequest request, string errorMessage)
+		public void ValidateGetOrderByIdRequest(GetOrderByIdQuery request, string errorMessage)
 		{
 			var result = OrdersValidator.VadidateGetOrderByIdRequest(request);
 

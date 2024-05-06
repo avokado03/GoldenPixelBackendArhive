@@ -24,7 +24,7 @@ namespace GoldenPixel.IntegrationTests.Orders
 			using (var connection = CreateDBConnection())
 			{
 				response = await OrderQueryHandler.HandleGetOrderById(connection,
-					new GetOrderByIdRequest(id));
+					new GetOrderByIdQuery(id));
 			}
 
 			Assert.That(response.Error, Is.Null);
@@ -44,7 +44,7 @@ namespace GoldenPixel.IntegrationTests.Orders
 			using (var connection = CreateDBConnection())
 			{
 				response = await OrderQueryHandler.HandleGetOrders(connection,
-					new GetOrdersRequest(count));
+					new GetOrdersQuery(count));
 			}
 
 			var resultIds = response.Orders.Select(x => x.Id).ToArray();

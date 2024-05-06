@@ -5,7 +5,7 @@ namespace GoldenPixel.CQRS.Handlers.Validation
 {
 	public static class OrdersValidator
 	{
-		public static ValidationResult VadidateGetOrderByIdRequest(GetOrderByIdRequest request)
+		public static ValidationResult VadidateGetOrderByIdRequest(GetOrderByIdQuery request)
 		{
 			var result = new ValidationResult();
 			bool isIdValid = request.Id != Guid.Empty;
@@ -17,7 +17,7 @@ namespace GoldenPixel.CQRS.Handlers.Validation
 		}
 
 		//TODO: реализовать после фильтров
-		public static ValidationResult ValidateGetOrdersRequest(GetOrdersRequest request)
+		public static ValidationResult ValidateGetOrdersRequest(GetOrdersQuery request)
 		{
 			throw new NotImplementedException();
 		}
