@@ -4,6 +4,9 @@ using GoldenPixel.TestInfrastructure.Attributes;
 
 namespace GoldenPixel.UnitTests.Orders;
 
+/// <summary>
+/// Unit-тесты для <see cref="OrderCommandHandler"/>
+/// </summary>
 [TestFixture]
 public class OrdersCommandsTests
 {

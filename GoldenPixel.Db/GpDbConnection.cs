@@ -8,6 +8,9 @@ public class GpDbConnection : DataConnection
 {
     public ITable<Orders> Orders => this.GetTable<Orders>();
 
+    /// <summary>
+    /// ctor for unit tests and DI
+    /// </summary>
     public GpDbConnection()
     {
 

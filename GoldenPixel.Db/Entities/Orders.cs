@@ -1,5 +1,8 @@
 ﻿namespace GoldenPixel.Db.Entities;
 
+/// <summary>
+/// Order db entity
+/// </summary>
 public class Orders
 {
     public Guid Id { get; set; }

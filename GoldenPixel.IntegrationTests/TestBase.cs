@@ -5,6 +5,9 @@ using LinqToDB.Data;
 
 namespace GoldenPixel.IntegrationTests;
 
+/// <summary>
+/// Базовый класс для интеграционных тестов
+/// </summary>
 [TestFixture]
 public class TestBase
 {

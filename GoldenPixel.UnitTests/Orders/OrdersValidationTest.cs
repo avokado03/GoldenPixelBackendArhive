@@ -3,6 +3,9 @@ using GoldenPixel.CQRS.Handlers.Validation;
 
 namespace GoldenPixel.UnitTests.Orders;
 
+/// <summary>
+/// Unit-тесты для <see cref="OrdersValidator/>
+/// </summary>
 [TestFixture]
 internal class OrdersValidationTest
 {

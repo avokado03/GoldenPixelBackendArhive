@@ -3,6 +3,9 @@ using Npgsql;
 
 namespace GoldenPixel.TestInfrastructure.DummyDb;
 
+/// <summary>
+/// Класс для работы с тестовой БД и запросами к ней
+/// </summary>
 public static class DummyDb
 {
     private static string ServerConnectionString { get; set; }
@@ -146,4 +149,3 @@ $@"SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = '{t
         return result;
     }
 }
-

@@ -4,6 +4,9 @@ using LinqToDB.Data;
 
 namespace GoldenPixel.IntegrationTests.Orders;
 
+/// <summary>
+/// Интеграционные тесты для <see cref="OrderQueryHandler"/>
+/// </summary>
 public class OrdersQueriesTests : TestBase
 {
     private Db.Entities.Orders[] _testOrders = new Db.Entities.Orders[2];

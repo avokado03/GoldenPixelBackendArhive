@@ -3,6 +3,9 @@ using GoldenPixel.CQRS.Handlers.Commands;
 
 namespace GoldenPixel.IntegrationTests.Orders;
 
+/// <summary>
+/// Интеграционные тесты для <see cref="OrderCommandHandler"/>
+/// </summary>
 public class OrderCommandsTests : TestBase
 {
     [Test]
