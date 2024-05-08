@@ -27,7 +27,8 @@ public static class OrderCommandHandler
 			Id = id,
 			Email = command.Email,
 			Requester = command.Requester,
-			Description = command.Description
+			Description = command.Description,
+			Date = DateTime.Now
 		};
 
 		var result = await connection.InsertAsync(order);

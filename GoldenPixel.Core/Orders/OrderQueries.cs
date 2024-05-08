@@ -5,4 +5,3 @@ public readonly record struct GetOrderByIdResponse(Orders? Order, OrderError? Er
 
 public readonly record struct GetOrdersQuery(int? count); // TODO: с фильтрами непонятно пока
 public readonly record struct GetOrdersResponse(Orders[]? Orders, OrderError? Error = null);
-

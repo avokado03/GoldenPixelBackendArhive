@@ -64,9 +64,9 @@ namespace GoldenPixel.IntegrationTests.Orders
 		{
 			Db.Entities.Orders[] orders =
 			[
-				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1" },
-				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1" },
-				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1" },
+				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1", Date = DateTime.Now },
+				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1", Date = DateTime.Now },
+				new() {Id = Guid.NewGuid(), Description = "desc1", Email = "email1", Requester = "req1", Date = DateTime.Now },
 			];
 			return orders;
 		}

@@ -9,7 +9,8 @@ internal static class OrderMappings
 	{
 		return new Domain.Orders(
 			Id: dbOrder.Id, Email: dbOrder.Email,
-			Description: dbOrder.Description, Requester: dbOrder.Requester
+			Description: dbOrder.Description, Requester: dbOrder.Requester,
+			Date: dbOrder.Date
 		);
 	}
 

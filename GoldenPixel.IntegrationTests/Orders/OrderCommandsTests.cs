@@ -12,7 +12,7 @@ namespace GoldenPixel.IntegrationTests.Orders
             using (var connection = CreateDBConnection())
             {
                 result = await OrderCommandHandler.HandleInsertCommand(connection,
-                new CreateOrderCommand("test", "test", "test"));
+                new CreateOrderCommand("test@ya.ru", "test", "test"));
             }
             Assert.That(result.Error, Is.Null);
             Assert.That(result.Id, Is.Not.Null);

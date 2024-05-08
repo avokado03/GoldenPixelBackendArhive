@@ -2,5 +2,6 @@ CREATE TABLE "Orders" (
     "Id" uuid NOT NULL,
     "Email" character varying(100) NOT NULL,
     "Requester" character varying(50) NOT NULL,
-    "Description" character varying(500) NOT NULL
+    "Description" character varying(500) NOT NULL,
+    "Date" date NOT NULL
 );
