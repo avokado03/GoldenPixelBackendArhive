@@ -6,15 +6,15 @@ namespace GoldenPixel.Db;
 
 public class GpDbConnection : DataConnection
 {
-	public ITable<Orders> Orders { get { return this.GetTable<Orders>(); } }
+    public ITable<Orders> Orders => this.GetTable<Orders>();
 
     public GpDbConnection()
     {
-        
+
     }
 
     public GpDbConnection(DataOptions<GpDbConnection> options) : base(options.Options)
-	{
+    {
 
-	}
+    }
 }

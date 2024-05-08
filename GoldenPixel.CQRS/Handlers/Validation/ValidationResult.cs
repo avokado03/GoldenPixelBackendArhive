@@ -1,37 +1,36 @@
 ﻿using System.Text;
 
-namespace GoldenPixel.CQRS.Handlers.Validation
+namespace GoldenPixel.CQRS.Handlers.Validation;
+
+public class ValidationResult
 {
-	public class ValidationResult
-	{
-		public int ErrorsCount { get; private set; } = 0;
-		public List<string> ErrorDescriptions { get; private set; } = new List<string>();
+    public int ErrorsCount { get; private set; } = 0;
+    public List<string> ErrorDescriptions { get; private set; } = new List<string>();
 
-		public override string ToString()
-		{
-			if (ErrorsCount == 0)
-			{
-				return "Модель валидна.";
-			}
-			var strBuilder = new StringBuilder();
-			foreach (var decr in ErrorDescriptions)
-			{
-				strBuilder.AppendLine(decr);
-			}
-			var result = $"Обнаружено {ErrorsCount} ошибок валидации. {strBuilder}";
-			return result;
-		}
+    public override string ToString()
+    {
+        if (ErrorsCount == 0)
+        {
+            return "Модель валидна.";
+        }
+        var strBuilder = new StringBuilder();
+        foreach (var decr in ErrorDescriptions)
+        {
+            strBuilder.AppendLine(decr);
+        }
+        var result = $"Обнаружено {ErrorsCount} ошибок валидации. {strBuilder}";
+        return result;
+    }
 
-		public void AddError(string message)
-		{
-			ErrorsCount++;
-			ErrorDescriptions.Add(message);
-		}
+    public void AddError(string message)
+    {
+        ErrorsCount++;
+        ErrorDescriptions.Add(message);
+    }
 
-		public void AddErrors(List<string> errorMessages)
-		{
-			ErrorsCount = errorMessages.Count;
-			ErrorDescriptions.AddRange(errorMessages);
-		}
+    public void AddErrors(List<string> errorMessages)
+    {
+        ErrorsCount = errorMessages.Count;
+        ErrorDescriptions.AddRange(errorMessages);
     }
 }

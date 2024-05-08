@@ -22,6 +22,6 @@ public static class Errors
     public static readonly OrderError OrderIsNull = new(OrdersErrorCode.OrdersIsNull, OrdersIsNullMessage);
     public static readonly OrderError FailedInsert = new(OrdersErrorCode.FailedInsert, FailedInsertMessage);
 
-	public static OrderError CreateValidationError(string message) 
+    public static OrderError CreateValidationError(string message)
         => new(OrdersErrorCode.FailedValidation, message);
 }
