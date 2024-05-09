@@ -8,6 +8,7 @@ using NLog.Extensions.Logging;
 using NLog.Web;
 using System.Reflection;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
+using GoldenPixelBackend.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,7 +61,9 @@ try
 		});
 	});
 
-	var app = builder.Build();
+    builder.Services.ConfigureMailKitService(builder.Configuration);
+
+    var app = builder.Build();
 
 
 	app.UseSwagger(c =>

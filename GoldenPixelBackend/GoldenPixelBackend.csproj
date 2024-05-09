@@ -27,6 +27,7 @@
     <ProjectReference Include="..\GoldenPixel.Core\GoldenPixel.Core.csproj" />
     <ProjectReference Include="..\GoldenPixel.CQRS\GoldenPixel.CQRS.csproj" />
     <ProjectReference Include="..\GoldenPixel.Db\GoldenPixel.Db.csproj" />
+    <ProjectReference Include="..\GoldenPixelBackend.Mail\GoldenPixelBackend.Mail.csproj" />
   </ItemGroup>
 
 </Project>
