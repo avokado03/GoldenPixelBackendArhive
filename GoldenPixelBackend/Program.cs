@@ -48,8 +48,8 @@ try
 		{
 			policy
 			.WithOrigins(
-				"http://localhost:7066",
-				"https://localhost:7066",
+				"http://localhost:8080",
+				"https://localhost:8080",
 				"http://localhost:80",
 				"https://localhost:80",
 				"https://golden-pixel.kz"
