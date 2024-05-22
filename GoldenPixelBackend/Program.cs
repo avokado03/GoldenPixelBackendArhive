@@ -73,7 +73,6 @@ try
 
 	app.UseSwaggerUI(c => SwaggerMiddlewareConfigurations.GetSwaggerUIOptions(c));
 
-
 	app.UseHttpsRedirection();
 
 	app.UseAuthorization();
