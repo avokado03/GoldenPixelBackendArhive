@@ -6,7 +6,8 @@ public enum OrdersErrorCode
     ManyRecordsByOrderId = 2,
     OrdersIsNull = 3,
     FailedInsert = 4,
-    FailedValidation = 5
+    FailedValidation = 5,
+    EmailFailed = 6
 }
 public readonly record struct OrderError(OrdersErrorCode ErrorCode, string ErrorMessage);
 
@@ -24,4 +25,7 @@ public static class Errors
 
     public static OrderError CreateValidationError(string message)
         => new(OrdersErrorCode.FailedValidation, message);
+
+    public static OrderError CreateEmailFailedError(string message)
+        => new(OrdersErrorCode.EmailFailed, message);
 }

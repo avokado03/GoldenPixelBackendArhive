@@ -10,19 +10,20 @@ public static class MailTemplates
     /// <summary>
     /// Уведомление заявителя о принятии заявки
     /// </summary>
-    public static Func<string, MailTemplate<RequestMailModel>> GetRequestTemplate = requesterName =>
-        new MailTemplate<RequestMailModel>()
+    public static Func<string, MailTemplate<RequestMailModel>> GetRequestTemplate = requesterName => {
+        return new MailTemplate<RequestMailModel>()
         {
             BodyPath = "RequestEmail.liquid",
             Subject = "Подтверждение заявки - Golden Pixel",
             TemplateModel = new RequestMailModel { RequesterName = requesterName }
         };
+    };
 
     /// <summary>
     /// Уведомление компании о новой заявке
     /// </summary>
-    public static Func<Guid, string, string, string, MailTemplate<NotificationModel>> GetNotificationTemplate =
-        (id, email, description, requesterName) =>
+    public static Func<Guid, string, string, string, DateTime, MailTemplate<NotificationModel>> GetNotificationTemplate =
+        (id, email, description, requesterName, date) =>
             new MailTemplate<NotificationModel>()
             {
                 BodyPath = "NotificationEmail.liquid",
@@ -32,7 +33,8 @@ public static class MailTemplates
                     RequesterName = requesterName,
                     Description = description,
                     Email = email,
-                    Id = id.ToString()
+                    Id = id.ToString(),
+                    Date = date.ToString()
                 }
             };
 }

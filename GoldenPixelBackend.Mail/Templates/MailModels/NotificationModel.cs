@@ -15,4 +15,7 @@ public class NotificationModel : RequestMailModel
 
     [Required]
     public string Description { get; set; }
+
+    [Required]
+    public string Date { get; set; }
 }
