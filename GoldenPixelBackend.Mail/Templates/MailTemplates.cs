@@ -22,13 +22,13 @@ public static class MailTemplates
     /// <summary>
     /// Уведомление компании о новой заявке
     /// </summary>
-    public static Func<Guid, string, string, string, DateTime, MailTemplate<NotificationModel>> GetNotificationTemplate =
+    public static Func<Guid, string, string, string, DateTime, MailTemplate<NotificationMailModel>> GetNotificationTemplate =
         (id, email, description, requesterName, date) =>
-            new MailTemplate<NotificationModel>()
+            new MailTemplate<NotificationMailModel>()
             {
                 BodyPath = "NotificationEmail.liquid",
                 Subject = $"Поступление новой заявки от {DateTime.Today}.",
-                TemplateModel = new NotificationModel
+                TemplateModel = new NotificationMailModel
                 {
                     RequesterName = requesterName,
                     Description = description,

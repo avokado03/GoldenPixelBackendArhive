@@ -31,7 +31,7 @@ public static class OrderCommandHandler
             Email = command.Email,
             Requester = command.Requester,
             Description = command.Description,
-            Date = DateTime.Now
+            Date = DateTime.Now.Date
         };
 
         int result = 0;
@@ -77,7 +77,7 @@ public static class OrderCommandHandler
 
         try
         {
-            emailNotificationResult = await mailService.SendAsync(new MailModel<NotificationModel>
+            emailNotificationResult = await mailService.SendAsync(new MailModel<NotificationMailModel>
             {
                 To = mailService.DefaultTo,
                 Template = MailTemplates.GetNotificationTemplate(order.Id, order.Email, order.Description, order.Requester, order.Date),

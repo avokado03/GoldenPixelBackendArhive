@@ -5,7 +5,7 @@ namespace GoldenPixelBackend.Mail.Templates.MailModels;
 /// <summary>
 /// Модель оповещения о новой заявке
 /// </summary>
-public class NotificationModel : RequestMailModel
+public class NotificationMailModel : RequestMailModel
 {
     [Required]
     public string Id { get; set; }
