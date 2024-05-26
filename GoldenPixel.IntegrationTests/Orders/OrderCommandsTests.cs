@@ -13,7 +13,7 @@ public class OrderCommandsTests : TestBase
     [Test]
     public async Task HandleInsertCommand_ReturnResponseWithoutError()
     {
-        var mailMock = new Mock<IMailService>();
+        var mailMock = new Mock<MailService>();
         var result = new CreateOrderResponse();
         using (var connection = CreateDBConnection())
         {

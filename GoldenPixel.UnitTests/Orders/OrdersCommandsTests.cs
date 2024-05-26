@@ -15,7 +15,7 @@ public class OrdersCommandsTests
     [ExpectedException(typeof(ArgumentNullException))]
     public async Task HandlerInsertCommand_NullConnection_ThrowExANE()
     {
-        var mailMock = new Mock<IMailService>();
+        var mailMock = new Mock<MailService>();
         var command = new CreateOrderCommand
         {
             Email = "email",

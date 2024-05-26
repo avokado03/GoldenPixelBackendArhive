@@ -16,6 +16,10 @@ public class MailService
 
     public string DefaultTo { get; private set; }
 
+    public MailService()
+    {
+    }
+
     public MailService(IFluentEmailFactory fluentEmailFactory, IOptions<EmailOptions> options)
     {
         _fluentEmailFactory = fluentEmailFactory;
