@@ -10,7 +10,7 @@ namespace GoldenPixelBackend.Mail;
 /// <summary>
 /// E-mail сервис
 /// </summary>
-public class MailService : IMailService
+public class MailService
 {
     private readonly IFluentEmailFactory _fluentEmailFactory;
 
