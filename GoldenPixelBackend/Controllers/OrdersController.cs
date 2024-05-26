@@ -2,7 +2,9 @@
 using GoldenPixel.CQRS.Handlers.Commands;
 using GoldenPixel.CQRS.Handlers.Queries;
 using GoldenPixel.Db;
+using GoldenPixelBackend.Mail;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 
 namespace GoldenPixelBackend.Controllers;
 
@@ -66,7 +68,8 @@ public class OrdersController : ControllerBase
     [ProducesErrorResponseType(typeof(BadRequestResult))]
     public async Task<IActionResult> Create(CreateOrderCommand command)
     {
-        var result = await OrderCommandHandler.HandleInsertCommand(_connection, command);
+        var mailMock = new Mock<IMailService>();
+        var result = await OrderCommandHandler.HandleInsertCommand(_connection, command, mailMock.Object);
         var isError = result.Error.HasValue;
         if(isError)
             _logger.LogError($"Create order with error: {result.Error}");

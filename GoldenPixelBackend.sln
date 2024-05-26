@@ -21,7 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.UnitTests", "Go
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.TestInfrastructure", "GoldenPixel.TestInfrastructure\GoldenPixel.TestInfrastructure.csproj", "{134020C1-9F5B-412A-99FE-3A75BAFC960D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPixel.IntegrationTests", "GoldenPixel.IntegrationTests\GoldenPixel.IntegrationTests.csproj", "{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenPixel.IntegrationTests", "GoldenPixel.IntegrationTests\GoldenPixel.IntegrationTests.csproj", "{645C3FEC-395A-40A3-AFFF-56F8E32FFDFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{55E0C26E-0256-4E44-8E22-BBFB7AF790A3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

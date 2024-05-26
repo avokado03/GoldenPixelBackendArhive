@@ -12,7 +12,9 @@ public class OrdersQueriesTests : TestBase
     private Db.Entities.Orders[] _testOrders = new Db.Entities.Orders[2];
 
     [SetUp]
-    protected void Init() 
+#pragma warning disable CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
+    protected void Init()
+#pragma warning restore CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
     {
         _testOrders = GetTestsOrders();
         InsertTestOrders(_testOrders);

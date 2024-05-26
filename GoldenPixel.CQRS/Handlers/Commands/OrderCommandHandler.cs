@@ -64,8 +64,11 @@ public static class OrderCommandHandler
     private static async Task<string> SendEmailMessages(Orders order, IMailService mailService)
     {
         var errorMessage = string.Empty;
+
+#nullable enable
         SendResponse? emailNotificationResult = null;
         SendResponse? emailRequesterResult = null;
+#nullable disable
 
         string CreateErrorMessage(Exception ex, string mailError)
         {

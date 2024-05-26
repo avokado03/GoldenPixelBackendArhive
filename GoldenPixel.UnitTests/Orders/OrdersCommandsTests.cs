@@ -1,6 +1,7 @@
 using GoldenPixel.Core.Orders;
 using GoldenPixel.CQRS.Handlers.Commands;
 using GoldenPixel.TestInfrastructure.Attributes;
+using GoldenPixelBackend.Mail;
 
 namespace GoldenPixel.UnitTests.Orders;
 
@@ -14,6 +15,7 @@ public class OrdersCommandsTests
     [ExpectedException(typeof(ArgumentNullException))]
     public async Task HandlerInsertCommand_NullConnection_ThrowExANE()
     {
+        var mailMock = new Mock<IMailService>();
         var command = new CreateOrderCommand
         {
             Email = "email",
@@ -21,6 +23,6 @@ public class OrdersCommandsTests
             Requester = "requester"
         };
 
-        await OrderCommandHandler.HandleInsertCommand(null, command);
+        await OrderCommandHandler.HandleInsertCommand(null, command, mailMock.Object);
     }
 }
