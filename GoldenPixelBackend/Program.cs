@@ -65,14 +65,14 @@ try
 
     var app = builder.Build();
 
-//#if DEBUG
+#if DEBUG
     app.UseSwagger(c =>
 	{
 		c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
 	});
 
 	app.UseSwaggerUI(c => SwaggerMiddlewareConfigurations.GetSwaggerUIOptions(c));
-//#endif
+#endif
 
     app.UseHttpsRedirection();
 
