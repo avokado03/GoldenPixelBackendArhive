@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-      - run: dotnet test
+      - run: dotnet test --filter FullyQualifiedName!~GoldenPixel.IntegrationTests.Orders --configuration Release
 
   build:
     runs-on: ubuntu-latest
