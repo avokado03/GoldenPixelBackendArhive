@@ -17,14 +17,16 @@ public class OrdersController : ControllerBase
 {
     private GpDbConnection _connection;
     private ILogger<OrdersController> _logger;
+    private MailService _mailService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public OrdersController(GpDbConnection connection, ILogger<OrdersController> logger)
+    public OrdersController(GpDbConnection connection, ILogger<OrdersController> logger, MailService mailService)
     {
         _connection = connection;
         _logger = logger;
+        _mailService = mailService;
     }
 
     /// <summary>
@@ -68,8 +70,8 @@ public class OrdersController : ControllerBase
     [ProducesErrorResponseType(typeof(BadRequestResult))]
     public async Task<IActionResult> Create(CreateOrderCommand command)
     {
-        var mailMock = new Mock<IMailService>();
-        var result = await OrderCommandHandler.HandleInsertCommand(_connection, command, mailMock.Object);
+
+        var result = await OrderCommandHandler.HandleInsertCommand(_connection, command, _mailService);
         var isError = result.Error.HasValue;
         if(isError)
             _logger.LogError($"Create order with error: {result.Error}");

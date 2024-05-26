@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentEmail.Core.Interfaces;
+﻿using FluentEmail.Core.Interfaces;
+using FluentEmail.MailKitSmtp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FluentEmail.MailKitSmtp;
 
 namespace GoldenPixelBackend.Mail;
+
 /// <summary>
 /// Добавление почтового сервисв в DI-контейнер
 /// и конфигурация
@@ -28,6 +24,8 @@ public static class MailServiceConfiguration
             RequiresAuthentication = true,
             SocketOptions = MailKit.Security.SecureSocketOptions.Auto
         };
+
+        services.Configure<EmailOptions>(x => x.DefaultTo = mailServiceConfig.From);
         services.AddSingleton<ISender>(x => new MailKitSender(options));
 
         services
@@ -36,4 +34,9 @@ public static class MailServiceConfiguration
             .AddLiquidRenderer();
         services.AddSingleton<MailService>();
     }
+}
+
+public class EmailOptions
+{
+    public string DefaultTo { get; set; }
 }

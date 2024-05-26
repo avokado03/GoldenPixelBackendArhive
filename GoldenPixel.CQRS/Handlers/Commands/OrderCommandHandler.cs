@@ -12,7 +12,7 @@ namespace GoldenPixel.CQRS.Handlers.Commands;
 public static class OrderCommandHandler
 {
     public static async Task<CreateOrderResponse> HandleInsertCommand(GpDbConnection connection,
-        CreateOrderCommand command, IMailService mailService)
+        CreateOrderCommand command, MailService mailService)
     {
         if (connection is null)
             throw new ArgumentNullException(nameof(connection));
@@ -61,7 +61,7 @@ public static class OrderCommandHandler
     /// Отправка оповещений о новой заявке
     /// </summary>
     /// <returns>Текст с ошибками smtp</returns>
-    private static async Task<string> SendEmailMessages(Orders order, IMailService mailService)
+    private static async Task<string> SendEmailMessages(Orders order, MailService mailService)
     {
         var errorMessage = string.Empty;
 
@@ -79,7 +79,7 @@ public static class OrderCommandHandler
         {
             emailNotificationResult = await mailService.SendAsync(new MailModel<NotificationModel>
             {
-                To = order.Email,
+                To = mailService.DefaultTo,
                 Template = MailTemplates.GetNotificationTemplate(order.Id, order.Email, order.Description, order.Requester, order.Date),
             });
 

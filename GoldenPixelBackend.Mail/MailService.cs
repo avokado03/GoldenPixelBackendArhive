@@ -2,18 +2,24 @@
 using FluentEmail.Core.Models;
 using GoldenPixelBackend.Mail.Templates;
 using GoldenPixelBackend.Mail.Templates.MailModels;
+using Microsoft.Extensions.Options;
 using System.Net;
 
 namespace GoldenPixelBackend.Mail;
+
 /// <summary>
 /// E-mail сервис
 /// </summary>
 public class MailService : IMailService
 {
     private readonly IFluentEmailFactory _fluentEmailFactory;
-    public MailService(IFluentEmailFactory fluentEmailFactory)
+
+    public string DefaultTo { get; private set; }
+
+    public MailService(IFluentEmailFactory fluentEmailFactory, IOptions<EmailOptions> options)
     {
         _fluentEmailFactory = fluentEmailFactory;
+        DefaultTo = options.Value.DefaultTo ?? throw new ArgumentNullException(nameof(options.Value));
         ServicePointManager.ServerCertificateValidationCallback =
             (sender, certificate, chain, sslPolicyErrors) => true;
     }
