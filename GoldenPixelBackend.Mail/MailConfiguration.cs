@@ -5,15 +5,23 @@
 public class MailConfiguration
 {
     /// <summary>
-    /// С какой почты идет отправка
-    /// </summary>
-    public string From { get; set; }
-
-    /// <summary>
     /// Имя отправителя
     /// </summary>
     public string FromName { get; set; }
 
+    /// <summary>
+    /// smtp-сервер
+    /// </summary>
+    public string Server { get; set; }
+
+    /// <summary>
+    /// Порт
+    /// </summary>
+    public string Port { get; set; }
+}
+
+public class MailUserConfiguration
+{
     /// <summary>
     /// Пользователь
     /// </summary>
@@ -25,12 +33,7 @@ public class MailConfiguration
     public string Password { get; set; }
 
     /// <summary>
-    /// smtp-сервер
+    /// С какой почты идет отправка
     /// </summary>
-    public string Server { get; set; }
-
-    /// <summary>
-    /// Порт
-    /// </summary>
-    public string Port { get; set; }
+    public string From { get; set; }
 }

@@ -45,7 +45,7 @@ public static class OrderCommandHandler
             return new(null, Errors.FailedInsert);
         }
 
-#if (!DEBUG)
+#if !DEBUG
         var emailSendResult = await SendEmailMessages(order, mailService);
         if(!string.IsNullOrEmpty(emailSendResult))
             return new(null, Errors.CreateEmailFailedError(emailSendResult));
@@ -79,7 +79,7 @@ public static class OrderCommandHandler
         {
             emailNotificationResult = await mailService.SendAsync(new MailModel<NotificationMailModel>
             {
-                To = mailService.DefaultTo,
+                To = mailService.EmailOptions.Value.NoReplyMail,
                 Template = MailTemplates.GetNotificationTemplate(order.Id, order.Email, order.Description, order.Requester, order.Date),
             });
 
