@@ -65,7 +65,7 @@ try
 
     var app = builder.Build();
 
-#if DEBUG
+#if !RELEASE
     app.UseSwagger(c =>
 	{
 		c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
