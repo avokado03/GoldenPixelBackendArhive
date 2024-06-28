@@ -14,8 +14,8 @@ public static class MailServiceConfiguration
     public static void ConfigureMailKitService(this IServiceCollection services, IConfiguration configuration)
     {
         var mailServiceConfig = configuration.GetSection("Mail").Get<MailConfiguration>();
-        var noReplyMailUserConfig = configuration.GetSection("Mail : NoReplyMailUser").Get<MailUserConfiguration>();
-        var requestMailUserConfig = configuration.GetSection("Mail : RequestMailUser").Get<MailUserConfiguration>();
+        var noReplyMailUserConfig = configuration.GetSection("Mail:NoReplyMailUser").Get<MailUserConfiguration>();
+        var requestMailUserConfig = configuration.GetSection("Mail:RequestMailUser").Get<MailUserConfiguration>();
         var options = new SmtpClientOptions
         {
             Server = mailServiceConfig.Server,
