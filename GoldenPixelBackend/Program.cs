@@ -55,7 +55,6 @@ try
 				"https://golden-pixel.kz"
 				)
 			.SetIsOriginAllowedToAllowWildcardSubdomains()
-			.AllowCredentials()
 			.WithMethods("POST", "PUT", "DELETE", "OPTIONS")
 			.WithHeaders("Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization");
 		});
